@@ -5,7 +5,7 @@ import socket
 import time
 import sys
 
-HOST = '165.3.122.191'
+HOST = sys.argv[1]
 PORT = 7000
 
 
