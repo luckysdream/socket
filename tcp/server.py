@@ -25,10 +25,13 @@ while True:
     print('connected by ' + str(addr))
 
     while True:
+        start  = datetime.datetime.now()
         indata = conn.recv(1024)
-        print(str(sub_run_time(float(indata.decode())))+'ms')
-        print(str(sub_run_time(float(indata.decode()))/2)+'ms')
+        print('到达时间:'+str(sub_run_time(float(indata.decode())))+'ms')
+        print('到达时间/2:'+str(sub_run_time(float(indata.decode()))/2)+'ms')
         conn.send(str(time.time()).encode())
+        run_time = datetime.datetime.now()-start
+        print('全程时间:'+str(int(run_time.microseconds / 1000.0))+'ms')
         #s.send(str(time.time()).encode())
         time.sleep(5)
         continue
