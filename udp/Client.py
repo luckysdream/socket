@@ -61,7 +61,7 @@ def threaded_function(arg):     #给对方发送数据的区域啦
             upfile(up_text[6:])
             up_text = ''
         if up_text != '':        #判断内容为空就不传输给对方
-            UDPSock.sendto(bytes(msg_code(0,str(up_text).encode('utf-8'))), (arg.split(':')[0], int(arg.split(':')[1])))    #发送数据给对方呐
+            UDPSock.sendto(bytes(str(msg_code(0,up_text).encode('utf-8'))), (arg.split(':')[0], int(arg.split(':')[1])))    #发送数据给对方呐
         print("程序运行时间:",str(int(time.time()-sta)))
         time.sleep(1)                 #睡眠1秒钟
     print("被退出")              #如果上面循环出现错误这个就会被打印
