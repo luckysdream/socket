@@ -122,7 +122,7 @@ thread1.start() #启动线程
 #用来接收对方发来的数据包 / 作为主线程存在
 while True:
     data,adr = UDPSock.recvfrom(5000)
-    print(data)
+    #print(data)
     if str(data,encoding="utf-8") == dest:
         continue
     date = json.loads(str(data,encoding="utf-8"))
