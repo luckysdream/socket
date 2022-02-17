@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import socket
-import time
+import time,requests
 
 HOST = '0.0.0.0'
 PORT = 7000
@@ -29,6 +29,7 @@ while True:
         indata = conn.recv(1024)
         print('到达时间:'+str(sub_run_time(float(indata.decode())))+'ms')
         print('到达时间/2:'+str(sub_run_time(float(indata.decode()))/2)+'ms')
+        requests.get('http://www.gstatic.com/generate_204')
         conn.send(str(time.time()).encode())
         run_time = datetime.datetime.now()-start
         print('全程时间:'+str(int(run_time.microseconds / 1000.0))+'ms')
